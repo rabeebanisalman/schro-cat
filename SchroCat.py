@@ -3,7 +3,6 @@ from PIL import Image,ImageTk
 from qiskit.quantum_info import Statevector
 from numpy import sqrt
 
-v = Statevector([1/sqrt(2), 1/sqrt(2)])
 click_enabled = True
 
 def load_and_resize_image(filename,size):
@@ -13,6 +12,7 @@ def load_and_resize_image(filename,size):
 
 def measure(event):
     global click_enabled
+    v = Statevector([1/sqrt(2), 1/sqrt(2)])
     outcome = v.measure()[0]
     if click_enabled == True:
         if outcome == '1':
